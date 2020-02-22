@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug')->default()->nullable();
             $table->text('body');
             $table->integer('views')->default(0);
-            $table->integer('answer')->default(0);
+            $table->integer('answers')->default(0);
             $table->integer('votes')->default(0);
             $table->integer('best_ans_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
